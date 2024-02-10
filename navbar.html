@@ -18,7 +18,7 @@
 
         section{
             height: 100vh;
-            background-color: #CCC;
+            background-color: rgba(0,0,0,0.03);
             padding-top: 70px;
         }
 
@@ -55,6 +55,7 @@
                         </li>
                     </ul>
                 </nav>
+                <button id="btn-checar-email" type="button" class="btn btn-warning">Checar Caixa de Entrada</button>
             </div>
         </div>
     </header>
@@ -64,6 +65,25 @@
         </section>
         <section id="produtos">
             <h2>Produtos</h2>
+            <div class="container">
+                <!-- <nav class="nav nav-tabs"> --> <!-- estilo abas -->
+                <nav class="nav nav-pills"> <!-- estilo botões -->
+                    <button data-bs-toggle="tab" data-bs-target="#aba1" class="nav-link active" type="button">Eletrônicos</button>
+                    <button data-bs-toggle="tab" data-bs-target="#aba2" class="nav-link" type="button">Moda Masculina</button>
+                    <button data-bs-toggle="tab" data-bs-target="#aba3" class="nav-link" type="button">Moda Feminina</button>
+                </nav>
+                <div class="tab-content">
+                    <div id="aba1" class="tab-pane active">
+                        Conteudo da Aba Eletrônicos
+                    </div>
+                    <div id="aba2" class="tab-pane">
+                        Conteudo da Aba Moda Masculina
+                    </div>
+                    <div id="aba3" class="tab-pane">
+                        Conteudo da Aba Moda Feminina
+                    </div>
+                </div>
+            </div>
         </section>
         <section id="promocoes">
             <h2>Promoções</h2>
@@ -72,6 +92,30 @@
             <h2>Contato</h2>
         </section>
     </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-2">
+        <div id="alerta" class="toast">
+            <header class="toast-header">
+                <strong>IMPORTANTE</strong>
+            </header>
+            <div class="toast-body">
+                <p>Você possui 10 mensagens não lidas!</p>
+                <div class="mt-2 pt-2 border-top">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="toast">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        const ativToast = document.getElementById('btn-checar-email');
+        const msg = document.getElementById('alerta');
+
+        if (ativToast){
+            ativToast.addEventListener('click', function(){
+                const toast = new bootstrap.Toast(msg);
+                toast.show();
+            })
+        }
+    </script>
 </body>
 </html>
